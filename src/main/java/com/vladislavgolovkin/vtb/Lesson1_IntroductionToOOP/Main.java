@@ -1,4 +1,4 @@
-package com.vladislavgolovkin.vtb.Lesson1;
+package com.vladislavgolovkin.vtb.Lesson1_IntroductionToOOP;
 
 /* Практическое задание
         1. Создать классы Собака, Домашний Кот, Тигр, Животное (можете добавить два-три своих
@@ -13,10 +13,10 @@ package com.vladislavgolovkin.vtb.Lesson1;
         5. * Добавить подсчет созданных Домашних Котов, Тигров, Собак, Животных.  */
 
 
-import static com.vladislavgolovkin.vtb.Lesson1.Animal.countAnimal;
-import static com.vladislavgolovkin.vtb.Lesson1.Cat.countCreatedCat;
-import static com.vladislavgolovkin.vtb.Lesson1.Dog.countCreatedDog;
-import static com.vladislavgolovkin.vtb.Lesson1.Tiger.countCreatedTiger;
+import static com.vladislavgolovkin.vtb.Lesson1_IntroductionToOOP.Animal.countAnimal;
+import static com.vladislavgolovkin.vtb.Lesson1_IntroductionToOOP.Cat.countCreatedCat;
+import static com.vladislavgolovkin.vtb.Lesson1_IntroductionToOOP.Dog.countCreatedDog;
+import static com.vladislavgolovkin.vtb.Lesson1_IntroductionToOOP.Tiger.countCreatedTiger;
 
 public class Main {
     public static void main(String[] args) {

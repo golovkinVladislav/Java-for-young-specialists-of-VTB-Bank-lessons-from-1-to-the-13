@@ -1,4 +1,4 @@
-package com.vladislavgolovkin.vtb.Lesson1;
+package com.vladislavgolovkin.vtb.Lesson1_IntroductionToOOP;
 
 public abstract class Animal {
     static int countAnimal;

@@ -1,4 +1,4 @@
-package com.vladislavgolovkin.vtb.Lesson1;
+package com.vladislavgolovkin.vtb.Lesson1_IntroductionToOOP;
 
 public class Dog extends Animal {
     private static final int restrictionsOnRunningActions = 500;
