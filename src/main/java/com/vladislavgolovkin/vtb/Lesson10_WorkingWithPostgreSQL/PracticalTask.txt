@@ -1,6 +1,6 @@
 ● Создайте таблицу студенты (students): id, имя, серия паспорта, номер паспорта;
 ● Пара серия-номер паспорта должны быть уникальны в таблице Студенты;
-CREATE TABLE students2 (
+CREATE TABLE students (
 id serial,
 name text NOT NULL,
 passport_serial NUMERIC NOT NULL,
