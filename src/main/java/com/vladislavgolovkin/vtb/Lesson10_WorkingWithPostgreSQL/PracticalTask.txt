@@ -1,0 +1,56 @@
+● Создайте таблицу студенты (students): id, имя, серия паспорта, номер паспорта;
+● Пара серия-номер паспорта должны быть уникальны в таблице Студенты;
+CREATE TABLE students2 (
+id serial,
+name text NOT NULL,
+passport_serial NUMERIC NOT NULL,
+passport_number NUMERIC NOT NULL,
+UNIQUE(passport_serial,passport_number),
+PRIMARY KEY (id),
+);
+
+ ● Создайте таблицу Предметы (subjects): id, название предмета;
+CREATE TABLE subjects
+(id serial,
+name text NOT NULL,
+UNIQUE(name),
+PRIMARY KEY (id));
+
+● Создайте таблицу Успеваемость (progress): id, студент, предмет, оценка;
+● Оценка может находиться в пределах от 2 до 5;
+● При удалении студента из таблицы, вся его успеваемость тоже должна быть удалена;
+CREATE TABLE progress
+(id serial,
+score int,
+student_id int,
+subject_id int,
+PRIMARY KEY(id),
+FOREIGN KEY (student_id) references students (id) ON DELETE CASCADE,
+foreign key (subject_id) references subjects (id) ON DELETE CASCADE,
+CHECK (score >= 2 AND score <=5));
+
+● Вывести список студентов, сдавших определенный предмет, на оценку выше 3;
+SELECT st.name,pr.score,sb.name
+FROM students as st
+INNER JOIN progress as pr
+ON st.id = pr.student_id
+INNER JOIN subjects as sb ON pr.subject_id=sb.id
+WHERE pr.score > 3 AND sb.name='history';
+
+● Посчитать средний бал по определенному предмету;
+SELECT avg(score) FROM progress as pr
+JOIN subjects as sb ON sb.id = pr.subject_id AND sb.name = 'physics';
+
+● Посчитать средний балл по определенному студенту;
+SELECT avg(score) FROM progress as pr
+JOIN subjects as sb ON sb.id = pr.subject_id
+JOIN students as st ON st.id = pr.student_id
+AND st.name = 'Anna';
+
+● Найти три предмета, которые сдали наибольшее количество студентов;
+SELECT sb.name,COUNT(score) as count_sc
+FROM subjects as sb
+JOIN progress as pr ON pr.subject_id = sb.id
+GROUP BY sb.name
+ORDER BY count_sc DESC
+LIMIT 3;
