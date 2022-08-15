@@ -66,17 +66,17 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        int sumRezult = 0;
+        int sumResult = 0;
         Session session1 = null;
         try {
             session1 = sessionFactory.getCurrentSession();
             session1.beginTransaction();
             List<Item> itemList = session1.createQuery("SELECT i FROM Item i", Item.class).getResultList();
             for (Item it : itemList) {
-                sumRezult += it.getValue();
+                sumResult += it.getValue();
             }
             session1.getTransaction().commit();
-            System.out.println(sumRezult);
+            System.out.println(sumResult);
         } finally {
             sessionFactory.close();
             if (session1 != null) {
